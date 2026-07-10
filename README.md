@@ -242,12 +242,7 @@ WHERE A.Balance > (SELECT AVG(Balance) FROM Account);
 Combines `Account` with its `Savings` or `Checkings` subtype to show interest rate or overdraft limit in a single row, depending on account type.
 
 ```sql
-SELECT 
-    A.Account_Number, 
-    A.Account_Type, 
-    A.Balance,
-    S.InterestRate,
-    C.OverdraftLimit
+SELECT A.Account_Number, A.Account_Type, A.Balance,S.InterestRate, C.OverdraftLimit
 FROM Account A
 LEFT JOIN Savings S ON A.ACCOUNT_ID = S.ACCOUNT_ID
 LEFT JOIN Checkings C ON A.ACCOUNT_ID = C.ACCOUNT_ID;
@@ -257,11 +252,7 @@ LEFT JOIN Checkings C ON A.ACCOUNT_ID = C.ACCOUNT_ID;
 Uses a common table expression to calculate each customer's loan amount relative to their credit score, then filters for customers carrying relatively high loan burden for their credit tier.
 
 ```sql
-WITH CustomerLoans AS (
-    SELECT 
-        C.PERSON_ID, 
-        C.Credit_Score, 
-        SUM(L.AMOUNT) AS Total_Loan_Amount
+WITH CustomerLoans AS (SELECT C.PERSON_ID,  C.Credit_Score, SUM(L.AMOUNT) AS Total_Loan_Amount
     FROM Customer C
     JOIN Loans L ON C.PERSON_ID = L.PERSON_ID
     GROUP BY C.PERSON_ID, C.Credit_Score
