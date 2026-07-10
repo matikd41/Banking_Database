@@ -26,7 +26,7 @@ A relational database project modeling a retail banking system, including custom
 
 ## Relational Table
 
-![RRelational_Table](Relational_Table.png)
+![Relational_Table](Relational_Table.png)
 ---
 
 ## Business Rules
