@@ -10,7 +10,7 @@ A relational database project modeling a retail banking system, including custom
 
 ```
 ├── Banking_Database.sql          -- full schema
-├── ERD.png                       -- entity-relationship diagram (conceptual model, crow's-foot notation)
+├── ERD.png                       -- entity-relationship diagram
 ├── README.md
 ├── Relational_Table.png          -- table structure
 └── Relational_Database_Model.png -- relational schema mapped to tables, PKs, and FKs
